@@ -1,12 +1,12 @@
 #include <stdio.h>
 /**
- * *main - main block
- * *Return: 0
- * */
+* main - main block
+* Return: 0
+*/
 int main(void)
 {
 	int i, j, k;
-	for (i = 48; i < 58; i++)
+for (i = 48; i < 58; i++)
 	{
 		for (j = 49; j < 58; j++)
 		{
