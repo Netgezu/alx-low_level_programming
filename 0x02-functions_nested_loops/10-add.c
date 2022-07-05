@@ -1,14 +1,11 @@
 #include "main.h"
 /**
  * add - to add integers
+ *@x: number
+ *@y: number
  * Return: 0
  */
 int add(int x, int y)
 {
-int n;
-x = 10;
-y = 20;
-n = x + y;
-_putchar(n);
-return (0);
+return (x + y);
 }
