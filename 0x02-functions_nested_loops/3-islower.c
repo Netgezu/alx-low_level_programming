@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <ctype.h>
 /**
-* c - check the code.
+* _islower - check the code.
+* @c - is ascii
 * Return: Always 0.
 */
 int _islower(int c)
