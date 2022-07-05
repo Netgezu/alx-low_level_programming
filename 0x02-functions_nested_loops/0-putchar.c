@@ -5,6 +5,8 @@
  */
 int main(void)
 {
-int _putchar(string '_putchar\n');
+char ch= '_putchar';
+int _putchar(ch);
+int _putchar('\n');
 return (0);
 }
