@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 /**
-* _islower - check the code.
+* c - check the code.
 * Return: Always 0.
 */
 int _islower(int c)
