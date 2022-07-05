@@ -6,7 +6,9 @@
 int add(int x, int y)
 {
 int n;
-n = add(10, 20)
+x = 10;
+y = 20;
+n = x + y;
 _putchar(n);
 return (0);
 }
