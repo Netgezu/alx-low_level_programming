@@ -1,7 +1,7 @@
 #include "main.h"
 /**
 * print_sign - check the code.
-* @c: is ascii
+* @n: is ascii
 * Return: Always 0.
 */
 int print_sign(int n)
