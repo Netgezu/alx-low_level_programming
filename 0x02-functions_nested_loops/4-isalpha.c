@@ -4,7 +4,7 @@
 * @c: is nice
 * Return: Always 0.
 */
-int _islower(int c)
+int _isalpha(int c)
 {
 if (c >= 'A' && c <= 'Z')
 return (1);
