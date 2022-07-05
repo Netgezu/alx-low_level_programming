@@ -6,7 +6,7 @@
 int main(void)
 {
 char ch= '_putchar';
-int _putchar(ch);
-int _putchar('\n');
+_putchar(ch);
+_putchar('\n');
 return (0);
 }
