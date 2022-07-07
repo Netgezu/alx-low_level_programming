@@ -1,9 +1,9 @@
 #include "main.h"
 /**
-* print_more_numbers - check the code
+* more_numbers - check the code
 * Return: Always 0
 */
-void print_more_numbers(void)
+void more_numbers(void)
 {
 int n, m;
 for (n = 0; n < 10; n++)
