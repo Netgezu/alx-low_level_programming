@@ -1,8 +1,6 @@
 #include "main.h"
 /**
 * more_numbers - check the code
-* @n: intiger
-* @m: intiger
 * Return: Always 0
 */
 void more_numbers(void)
