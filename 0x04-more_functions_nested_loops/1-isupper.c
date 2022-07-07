@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdio.h>
-#include <ctype.h>
 /**
 * _isupper - check the code.
 * @c: is ascii
