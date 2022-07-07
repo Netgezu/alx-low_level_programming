@@ -3,12 +3,13 @@
 * main - causes an infinite loop
 * Return: 0
 */
+/*i is not incrementing and it is always less than 10*/
 int main(void)
 {
 int i;
 printf("Infinite loop incoming :(\n");
 i = 0;
-while (i < 10) /*i is not incrementing and it is always less than 10*/
+while (i < 10)
 {
 putchar(i);
 }
