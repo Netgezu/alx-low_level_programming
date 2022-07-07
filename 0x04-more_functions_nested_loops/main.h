@@ -1,3 +1,4 @@
+int _putchar(char c);
 #include <stdio.h>
 #include <ctype.h>
 int _isupper(int c);
