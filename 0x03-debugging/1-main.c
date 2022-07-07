@@ -1,9 +1,9 @@
 #include <stdio.h>
 /**
 * main - causes an infinite loop
+* i is not incrementing and it is always less than 10
 * Return: 0
 */
-/*i is not incrementing and it is always less than 10*/
 int main(void)
 {
 int i;
