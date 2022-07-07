@@ -1,8 +1,8 @@
 #include "main.h"
 #include <stdio.h>
 /**
-* _isdigit - checks c is digit.
-* @c: is number
+* _isdigit - check the code.
+* @c: is ascii
 * Return: Always 0.
 */
 int _isdigit(int c)
