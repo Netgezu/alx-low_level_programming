@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* _islower - check the code.
+* _isupper - check the code.
 * @c: is ascii
 * Return: Always 0.
 */
