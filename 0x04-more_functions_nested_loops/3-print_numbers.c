@@ -1,12 +1,12 @@
 #include "main.h"
 /**
-* print_alphabet - check the code
+* print_numbers - check the code
 * Return: Always 0
 */
 void print_numbers(void)
 {
-int i;
-for (i = 0; i < 10; i++)
+int n;
+for (n = 48; n < 58; n++)
 {
 _putchar('i');
 }
