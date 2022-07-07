@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* _isupper - check the code.
+* mul - check the code.
 * @a: is an intiger
 * @b: is an intiger
 * Return: Always 0.
