@@ -11,5 +11,6 @@ int n;
 for (n = 0; n < '\0'; n++)
 {
 printf("%d, ", a[n])
+printf("\n")
 }
 }
