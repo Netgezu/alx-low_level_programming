@@ -16,10 +16,9 @@ char *_strchr(char *s, char c)
 		}
 		else if (*(s + 1) == c)
 		{
-			return (s + 1);
+			return (NULL);
 		}
 		s++;
 	}
-	return (s + 1);
-	return (NULL);
+	return (0);
 }
