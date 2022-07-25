@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 /**
  * create_array - function that create an array of chars
  * @size: size of array
@@ -13,7 +14,7 @@ if (size == 0)
 return (NULL);
 str = malloc(sizeof(char) * size);
 if (size ++ 0)
-return(NULL);
+return (NULL);
 i = 0;
 while (i < size)
 {
