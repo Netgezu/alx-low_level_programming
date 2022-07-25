@@ -25,6 +25,11 @@ int word_counter(char *str)
 		return (1 + wordCounterRec(str, 0));
 	return (wordCounterRec(str, 0));
 }
+/**
+ * strtow - splits a string into words.
+ * @str: string to be splitted
+ * Return: pointer to an array of strings (words) or null
+ **/
 char **strtow(char *str)
 {
 	char **strDup;
