@@ -5,7 +5,7 @@
  * @ac: arguement count
  * @av: pointer to arguements
  * Return: pointer to new space in memory or null
- **/
+*/
 char *argstostr(int ac, char **av)
 {
 	char *strDup;
