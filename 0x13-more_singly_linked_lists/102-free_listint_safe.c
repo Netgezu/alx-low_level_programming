@@ -1,40 +1,41 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "lists.h"
-/**
- * free_listint_safe - free a linked list safe.
- * @h: linked  list.
- * Return: number of nodes in the list.
- */
-size_t free_listint_safe(listint_t **h)
-{
-	size_t c = 0;
-	aux_list *a, *b, *t;
-	listint_t *f;
 
-	f = *h;
-	a = NULL;
-	for (; *h != NULL; c++)
-	{
-		t = malloc(sizeof(aux_list));
-		if (!t)
-			exit(98);
-		t->p = *h;
-		t->next = a;
-		a = t;
-		b = a->next;
-		f = *h;
-		while (b != NULL)
-		{
-			if (*h == b->p)
-			{
-				free_aux(a);
-				*h = NULL;
-				return (c);
-			}
-			b = b->next;
-		}
-		*h = (*h)->next;
-		free(f);
-	}
-	free_aux(a);
-	return (c);
+/**
+ * main - check the code for Holberton School students.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    listint_t *head;
+    listint_t *head2;
+    listint_t *node;
+
+    head2 = NULL;
+    add_nodeint(&head2, 0);
+    add_nodeint(&head2, 1);
+    add_nodeint(&head2, 2);
+    add_nodeint(&head2, 3);
+    add_nodeint(&head2, 4);
+    add_nodeint(&head2, 98);
+    add_nodeint(&head2, 402);
+    add_nodeint(&head2, 1024);
+    print_listint_safe(head2);
+    head = NULL;
+    node = add_nodeint(&head, 0);
+    add_nodeint(&head, 1);
+    add_nodeint(&head, 2);
+    add_nodeint(&head, 3);
+    add_nodeint(&head, 4);
+    node->next = add_nodeint(&head, 98);
+    add_nodeint(&head, 402);
+    add_nodeint(&head, 1024);
+    print_listint_safe(head);
+    free_listint_safe(&head2);
+    free_listint_safe(&head);
+    printf("%p, %p\n", (void *)head2, (void *)head);
+    return (0);
 }
