@@ -1,56 +1,60 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
+
 /**
- *unique_node_count - counts no. of unique nodes
- *@head:pointer to a head node
- *Return:number of unique nodes,otherwise 0
+ * free_aux - frees a linked list
+ * @p: head of a list.
+ *
+ * Return: no return.
  */
-size_t unique_node_count(const listint_t *head)
+void free_aux(aux_list *p)
 {
-	listint_t *hare, *tortoise;
-	size_t count = 1;
+	aux_list *aux;
 
-	if (head == NULL || head->next == NULL)
+	if (p == NULL)
 	{
-		return (0);
+		return;
 	}
-	hare = head->next->next;
-	tortoise = head->next;
-	while (hare)
+	while (p != NULL)
 	{
-		if (tortoise == hare)
-		{
-			tortoise = head;
-			while (tortoise != hare)
-			{
-				count++;
-				tortoise = tortoise->next;
-				hare = hare->next;
-			}
-			tortoise = tortoise->next;
-			while (tortoise != hare)
-			{
-				count++;
-				tortoise = tortoise->next;
-			}
+		aux = p;
+		p = p->next;
+		free(aux);
+	}
+}
 
 /**
- *print_listint_safe - prints a listint list
- *@head:pointer to head
- *Return:number of nodes in list
+ * print_listint_safe - prints a linked list.
+ * @head: head of a list.
+ *
+ * Return: number of nodes in the list.
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	unsigned int i = 0;
+	size_t c = 0;
+	aux_list *a, *b, *t;
 
-	if (head == NULL)
-		exit(98);
-	while (head)
+	a = NULL;
+	for (; head != NULL; c++, head = head->next)
 	{
-		printf("[%p] %d", (void *)head, head->n);
-		i++;
-		head = head->next;
+		t = malloc(sizeof(aux_list));
+		if (!t)
+			exit(98);
+		t->p = (void *)head;
+		t->next = a;
+		a = t;
+		b = a->next;
+		while (b != NULL)
+		{
+			if (head == b->p)
+			{
+				printf("-> [%p] %d\n", (void *)head, head->n);
+				free_aux(a);
+				return (c);
+			}
+			b = b->next;
+		}
+		printf("[%p] %d\n", (void *)head, head->n);
 	}
-	return (i);
+	free_aux(a);
+	return (c);
 }
