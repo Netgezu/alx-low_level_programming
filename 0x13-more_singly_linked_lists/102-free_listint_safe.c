@@ -1,41 +1,32 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * free_listint_safe - frees a list
+ * @h: the pointer to the start of list to free
+ * Return: size of free'd list (in nodes?)
  */
-int main(void)
+size_t free_listint_safe(listint_t **h)
 {
-    listint_t *head;
-    listint_t *head2;
-    listint_t *node;
+	size_t nodeCount = 0;
+	listint_t *temp = NULL;
 
-    head2 = NULL;
-    add_nodeint(&head2, 0);
-    add_nodeint(&head2, 1);
-    add_nodeint(&head2, 2);
-    add_nodeint(&head2, 3);
-    add_nodeint(&head2, 4);
-    add_nodeint(&head2, 98);
-    add_nodeint(&head2, 402);
-    add_nodeint(&head2, 1024);
-    print_listint_safe(head2);
-    head = NULL;
-    node = add_nodeint(&head, 0);
-    add_nodeint(&head, 1);
-    add_nodeint(&head, 2);
-    add_nodeint(&head, 3);
-    add_nodeint(&head, 4);
-    node->next = add_nodeint(&head, 98);
-    add_nodeint(&head, 402);
-    add_nodeint(&head, 1024);
-    print_listint_safe(head);
-    free_listint_safe(&head2);
-    free_listint_safe(&head);
-    printf("%p, %p\n", (void *)head2, (void *)head);
-    return (0);
+	if (!(h && *h))
+		return (nodeCount);
+	while (*h)
+	{
+		nodeCount++;
+		if (*h > (*h)->next)
+		{
+			temp = *h;
+			*h = (*h)->next;
+			free(temp);
+		}
+		else
+		{
+			free(*h);
+			*h = NULL;
+		}
+	}
+	*h = NULL;
+	return (nodeCount);
 }
