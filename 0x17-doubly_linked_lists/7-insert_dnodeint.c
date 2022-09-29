@@ -1,51 +1,50 @@
 #include "lists.h"
-#include <stdlib.h>
-#include <stdio.h>
 /**
- *insert_dnodeint_at_index - inserts a new node at a given position
- *@h:pointer to list
- *@idx:index to insert at
- *@n:integer data
- *Return:address of new_node or NULL
+ *insert_dnodeint_at_index - insert node into a doubly linked list
+ *@h: doubly linked list
+ *@idx: position to store the value
+ *@n: value to store
+ *Return: doubly linked list
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int i = 0;
-	dlistint_t *current_node = *h;
-	dlistint_t *new_node = NULL;
+	dlistint_t *temp = NULL, *aux = NULL;
+	unsigned int num = 0;
 
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
+	if (h == NULL)
 		return (NULL);
-	new_node->n = n;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	if (*h == NULL)
+	if (*h == NULL || idx == 0)
 	{
-		*h = new_node;
-		return (*h);
+		temp = add_dnodeint(h, n);
+		return (temp);
 	}
-	if (idx == 0)
+	for (aux = *h; aux; num++, aux = aux->next)
+		;
+	if (idx == num)
 	{
-		return (add_dnodeint(h, n));
+		temp = add_dnodeint_end(h, n);
+		return (temp);
 	}
-	while (current_node != NULL)
+	if (idx > num)
+		return (NULL);
+	aux = *h;
+	num = 1;
+	while (aux != NULL)
 	{
-		if (i == idx)
+		if (num == idx)
 		{
-			new_node->next = current_node;
-			new_node->prev = current_node->prev;
-			current_node->prev->next = new_node;
-			current_node->prev = new_node;
-			return (new_node);
+			temp = malloc(sizeof(dlistint_t));
+			if (temp == NULL)
+				return (NULL);
+			temp->n = n;
+			temp->next = aux->next;
+			temp->prev = aux;
+			aux->next->prev = temp;
+			aux->next = temp;
+			break;
 		}
-		i++;
-		current_node = current_node->next;
+		aux = aux->next;
+		num++;
 	}
-	/*end*/
-	if (i == idx)
-	{
-		return (add_dnodeint_end(h, n));
-	}
-	return (NULL);
+	return (temp);
 }
